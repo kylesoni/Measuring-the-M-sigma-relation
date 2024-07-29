@@ -16,9 +16,10 @@ Data with the best fit line, following the equation $\text{log}(M_{BH}/M_\odot) 
 
 ## Introduction
 
-Previous studies of elliptical galaxies and bulges in spiral galaxies have shown evidence that they contain supermassive blackholes at their center. Moreover, an important relationship which correlates the mass of the supermassive black holes to the velocity dispersion of stars in the surrounding galactic bulge has been discovered, often known as the M-$\sigma$ relation [1]. This relation is significant because it provides insights into the co-evolution of galaxies and their central black holes. It also helps with galaxy classification and cosmology, fitting our understanding of galaxies into a larger cosmological framework.
+Previous studies of elliptical galaxies and bulges in spiral galaxies have shown evidence that they contain supermassive blackholes at their center. Moreover, an important relationship which correlates the mass of the supermassive black holes to the velocity dispersion of stars in the surrounding galactic bulge has been discovered, often known as the M-σ relation [1]. This relation is significant because it provides insights into the co-evolution of galaxies and their central black holes. It also helps with galaxy classification and cosmology, fitting our understanding of galaxies into a larger cosmological framework.
 
 The relation has been estimated many times, structured as a linear relationship between $\text{log}(M_{BH})$ and $\text{log}(\sigma)$ of the form [1]
+
 $$\text{log}(M_{BH}/M_\odot) = b + m \text{log}(\sigma / 200 \text{ km s$^{-1}$})$$
 
 In this report, I will perform Bayesian analysis on 51 mass and $\sigma$ measurements to compare my calculation for this relation with previous work.
@@ -53,7 +54,8 @@ $\Sigma_i =
 0 & \sigma_{y_i}^2
 \end{pmatrix}$
 
-Continuing the derivation, the distance to the line will be 
+Continuing the derivation, the distance to the line will be
+
 $$\Delta_i = \vec{n}^T \begin{pmatrix} x_i \\ y_i \end{pmatrix} - b \cos(\alpha) = \begin{pmatrix} -\sin(\alpha) & \cos(\alpha) \end{pmatrix} \begin{pmatrix} x_i \\ y_i \end{pmatrix} - b \cos(\alpha) = y_i \cos(\alpha) - x_i \sin(\alpha) - b \cos(\alpha)$$
 
 To calculate the standard deviation estimate, we follow
@@ -65,10 +67,12 @@ $$S_i^2 = \vec{n}^T \Sigma_i \vec{n} = \begin{pmatrix} -\sin(\alpha) & \cos(\alp
 \end{pmatrix} 
 \begin{pmatrix} -\sin(\alpha) \\ \cos(\alpha) \end{pmatrix} = \sin^2(\alpha) \sigma_{y_i}^2 + \cos^2(\alpha) \sigma_{x_i}^2$$
 
-This means our pdf is 
+This means our pdf is
+
 $$p(y_i \mid m, b, x_i, \sigma_{y_i}, \sigma_{x_i}) = \frac{1}{\sqrt{2\pi(\sin^2(\alpha) \sigma_{y_i}^2 + \cos^2(\alpha) \sigma_{x_i}^2)}}\exp{- \frac{(y_i \cos(\alpha) - x_i \sin(\alpha) - b \cos(\alpha))^2}{2(\sin^2(\alpha) \sigma_{y_i}^2 + \cos^2(\alpha) \sigma_{x_i}^2)}}$$
 
 However, this model has no way of accounting for outliers, so I'll introduce a mixture model to compensate for this. This gives a pdf
+
 $$p(y_i\mid m, b, x_i, \sigma_{y_i}, \sigma_{x_i}, \omega, \mu_b, \sigma_b) = \frac{(1-\omega) }{\sqrt{2\pi(\sin^2(\alpha) \sigma_{y_i}^2 + \cos^2(\alpha) \sigma_{x_i}^2)}}\exp{- \frac{(y_i \cos(\alpha) - x_i \sin(\alpha) - b \cos(\alpha))^2}{2(\sin^2(\alpha) \sigma_{y_i}^2 + \cos^2(\alpha) \sigma_{x_i}^2)}} + \omega \mathcal{N}(\mu_b, \sigma_b)$$
 
 where the model parameters are defined as follows: $\omega$ is the proportion of outliers in the data, $\mu_b$ is the mean of the background (causing the outliers), and $\sigma_b$ is the standard deviation of the background. With this pdf, we can now write the full likelihood.
@@ -109,5 +113,6 @@ The 95% credible region for b is: 8.20 +/- 0.16.
 ## Conclusions
 
 After attempting to fit a line to 51 observations and measure the $M-\sigma$ relation, I found
+
 $$\text{log}(M_{BH}/M_\odot) = (8.20 \pm 0.16) + (4.09 \pm 0.01) * \text{log}(\sigma / 200 \text{ km s$^{-1}$})$$
 Previous studies found $m$ to be around 3.5-5 and $b$ to be around 8, so these values are not unreasonable given previous knowledge. However, the uncertainty for $m$ is suspicously low, so it may be possible that my outlier correction was too harsh. Future work may seek to use a more robust likelihood for the outliers or investigate the most inconsistent galaxies directly. Regardless, this measurement is still useful for solidying our understanding of the $M-\sigma$ relation, and it can be used for comparison in future studies.
