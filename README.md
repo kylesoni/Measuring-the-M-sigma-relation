@@ -1,4 +1,4 @@
-# Measuring the M-U+03C3 relation using measurements of galactic bulge velocity dispersion and supermassive black holes masses
+# Measuring the M-&#03C3 relation using measurements of galactic bulge velocity dispersion and supermassive black holes masses
 
 ---
 
