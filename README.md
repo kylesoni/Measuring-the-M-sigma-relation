@@ -6,6 +6,8 @@ By Kyle Soni
 
 08 December 2023
 
+Code for this project is in FinalProject.ipynb.
+
 ## Summary
 
 There is a well-known relation between the mass of the supermassive black holes to the velocity dispersion of stars in the surrounding galactic bulge, often known as the M-σ relation. However, the data for these objects has uncertainties for both the mass and the sigma (on both axes). I sought to fit a model to this relationship with a Bayesian analysis, accounting for both uncertainties and outliers with a mixture model. The results are shown in this figure:
