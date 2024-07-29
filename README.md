@@ -8,7 +8,7 @@ By Kyle Soni
 
 ## Summary
 
-There is a well-known relation between the mass of the supermassive black holes to the velocity dispersion of stars in the surrounding galactic bulge, often known as the M-$\sigma$ relation. However, the data for these objects has uncertainties for both the mass and the sigma (on both axes). I sought to fit a model to this relationship with a Bayesian analysis, accounting for both uncertainties and outliers with a mixture model. The results are shown in this figure:
+There is a well-known relation between the mass of the supermassive black holes to the velocity dispersion of stars in the surrounding galactic bulge, often known as the M-σ relation. However, the data for these objects has uncertainties for both the mass and the sigma (on both axes). I sought to fit a model to this relationship with a Bayesian analysis, accounting for both uncertainties and outliers with a mixture model. The results are shown in this figure:
 
 ![alt text](https://github.com/kylesoni/Measuring-the-M-sigma-relation/blob/main/figures/fig5.png?raw=true)
 
@@ -40,19 +40,19 @@ One important note is that the original data had some asymmetric uncertainties f
 
 The first step to the analysis was formulating the likelihood. I made a couple of key assumptions: the error distributions for both the mass and $\sigma$ are approximately Gaussian and the measurements of $M_{BH}$ and $\sigma$ are indepedent. Using these assumptions, I can project the data to be orthogonal to a best fit line and account equally for both uncertainties. I'll start by expressing the slope $m$ in terms of a normal vector
 
-$\vec{n} =
+$$\vec{n} =
 \begin{pmatrix}
 -\sin(\alpha)\\
 \cos(\alpha)
-\end{pmatrix}$
+\end{pmatrix}$$
 
 where $m = \arctan(\alpha)$. Since $M_{BH}$ and $\sigma$ are independent, our covariance matrix is
 
-$\Sigma_i = 
+$$\Sigma_i = 
 \begin{pmatrix}
 \sigma_{x_i}^2 & 0\\
 0 & \sigma_{y_i}^2
-\end{pmatrix}$
+\end{pmatrix}$$
 
 Continuing the derivation, the distance to the line will be
 
@@ -115,4 +115,5 @@ The 95% credible region for b is: 8.20 +/- 0.16.
 After attempting to fit a line to 51 observations and measure the $M-\sigma$ relation, I found
 
 $$\text{log}(M_{BH}/M_\odot) = (8.20 \pm 0.16) + (4.09 \pm 0.01) * \text{log}(\sigma / 200 \text{ km s$^{-1}$})$$
+
 Previous studies found $m$ to be around 3.5-5 and $b$ to be around 8, so these values are not unreasonable given previous knowledge. However, the uncertainty for $m$ is suspicously low, so it may be possible that my outlier correction was too harsh. Future work may seek to use a more robust likelihood for the outliers or investigate the most inconsistent galaxies directly. Regardless, this measurement is still useful for solidying our understanding of the $M-\sigma$ relation, and it can be used for comparison in future studies.
