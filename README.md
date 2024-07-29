@@ -25,6 +25,9 @@ The data was compiled by a previous paper in which they examine various properti
 
 One important note is that the original data had some asymmetric uncertainties for the mass measurmenets. For the purposes of this project, I averaged the uncertainty for each mass and then converted to log space.
 
+![alt text](https://github.com/kylesoni/Measuring-the-M-sigma-relation/blob/main/figures/fig1.png?raw=true)
+Figure 1. Plot of the $M-\sigma$ relation in log space. The data is composed of 51 measurements with uncertainties for both variables.
+
 [1] Kayhan G ̈ultekin, Douglas O. Richstone, Karl Gebhardt, Tod R. Lauer, Scott Tremaine, M. C. Aller, Ralf Bender, Alan Dressler, S. M. Faber, Alexei V. Filippenko, Richard Green, Luis C. Ho, John Kormendy, John Magorrian, Jason Pinkney, and Christos Siopis. The m– and m–l relations in galactic bulges, and determinations of their intrinsic scatter. The Astrophysical Journal, 698(1):198, may 2009.
 
 ## Analysis/Results
